@@ -1,0 +1,1104 @@
+{
+  "contract_checks_pass": true,
+  "cases": [
+    {
+      "case": "math",
+      "task": {
+        "question": "2+3?",
+        "choices": {
+          "A": "4",
+          "B": "5",
+          "C": "6",
+          "D": "7"
+        },
+        "instruction": "Choose the single best answer to the question from the supplied candidates. Use only information in the question and general knowledge. Reply with exactly one uppercase letter: the chosen candidate ID. Do not generate an explanation.",
+        "task_sha256": "36ecaf78e7a0a90c1c75ae7affc661096a597683819bb5a99d820674e6cd0f86"
+      },
+      "expected": "B",
+      "correct": {
+        "laya": false,
+        "llama1b": false,
+        "llama3b": false
+      },
+      "results": {
+        "laya": {
+          "received_ms": 7823.656,
+          "type": "model_result",
+          "model": "laya",
+          "kind": "classification",
+          "task_sha256": "36ecaf78e7a0a90c1c75ae7affc661096a597683819bb5a99d820674e6cd0f86",
+          "label": "A",
+          "answer": "4",
+          "valid_choice": true,
+          "scores": [
+            {
+              "label": "A",
+              "answer": "4",
+              "score": 0.3519
+            },
+            {
+              "label": "D",
+              "answer": "7",
+              "score": 0.2924
+            },
+            {
+              "label": "B",
+              "answer": "5",
+              "score": 0.1818
+            },
+            {
+              "label": "C",
+              "answer": "6",
+              "score": 0.1739
+            }
+          ],
+          "text": "A",
+          "latency_ms": 164.746,
+          "load_ms": 7655.356,
+          "input_tokens": 69,
+          "output_tokens": 0,
+          "ttft_ms": null,
+          "tokens_per_second": null,
+          "generation_ms": null,
+          "finish_reason": "classification"
+        },
+        "llama1b": {
+          "received_ms": 13118.796,
+          "type": "model_result",
+          "model": "llama1b",
+          "kind": "generation",
+          "text": "C. 6",
+          "task_sha256": "36ecaf78e7a0a90c1c75ae7affc661096a597683819bb5a99d820674e6cd0f86",
+          "label": null,
+          "answer": null,
+          "valid_choice": false,
+          "input_tokens": 101,
+          "load_ms": 3826.507,
+          "output_tokens": 5,
+          "elapsed_ms": 1466.478,
+          "ttft_ms": 783.731,
+          "tokens_per_second": 5.864,
+          "generation_ms": 682.113,
+          "latency_ms": 1466.488,
+          "finish_reason": "eos"
+        },
+        "llama3b": {
+          "received_ms": 24055.839,
+          "type": "model_result",
+          "model": "llama3b",
+          "kind": "generation",
+          "text": "A",
+          "task_sha256": "36ecaf78e7a0a90c1c75ae7affc661096a597683819bb5a99d820674e6cd0f86",
+          "label": "A",
+          "answer": "4",
+          "valid_choice": true,
+          "input_tokens": 101,
+          "load_ms": 8691.173,
+          "output_tokens": 2,
+          "elapsed_ms": 2244.661,
+          "ttft_ms": 1798.814,
+          "tokens_per_second": 2.247,
+          "generation_ms": 445.124,
+          "latency_ms": 2244.673,
+          "finish_reason": "eos"
+        }
+      },
+      "events": [
+        {
+          "received_ms": 2.233,
+          "type": "run_start",
+          "order": [
+            "laya",
+            "llama1b",
+            "llama3b"
+          ],
+          "task": {
+            "question": "2+3?",
+            "choices": {
+              "A": "4",
+              "B": "5",
+              "C": "6",
+              "D": "7"
+            },
+            "instruction": "Choose the single best answer to the question from the supplied candidates. Use only information in the question and general knowledge. Reply with exactly one uppercase letter: the chosen candidate ID. Do not generate an explanation.",
+            "task_sha256": "36ecaf78e7a0a90c1c75ae7affc661096a597683819bb5a99d820674e6cd0f86"
+          }
+        },
+        {
+          "received_ms": 2.259,
+          "type": "model_start",
+          "model": "laya",
+          "name": "Laya · 제로샷 분류",
+          "kind": "classification"
+        },
+        {
+          "received_ms": 2.314,
+          "type": "status",
+          "model": "laya",
+          "message": "로컬 모델을 불러오는 중…"
+        },
+        {
+          "received_ms": 7658.729,
+          "type": "status",
+          "model": "laya",
+          "message": "분류 중…"
+        },
+        {
+          "received_ms": 7823.656,
+          "type": "model_result",
+          "model": "laya",
+          "kind": "classification",
+          "task_sha256": "36ecaf78e7a0a90c1c75ae7affc661096a597683819bb5a99d820674e6cd0f86",
+          "label": "A",
+          "answer": "4",
+          "valid_choice": true,
+          "scores": [
+            {
+              "label": "A",
+              "answer": "4",
+              "score": 0.3519
+            },
+            {
+              "label": "D",
+              "answer": "7",
+              "score": 0.2924
+            },
+            {
+              "label": "B",
+              "answer": "5",
+              "score": 0.1818
+            },
+            {
+              "label": "C",
+              "answer": "6",
+              "score": 0.1739
+            }
+          ],
+          "text": "A",
+          "latency_ms": 164.746,
+          "load_ms": 7655.356,
+          "input_tokens": 69,
+          "output_tokens": 0,
+          "ttft_ms": null,
+          "tokens_per_second": null,
+          "generation_ms": null,
+          "finish_reason": "classification"
+        },
+        {
+          "received_ms": 7823.751,
+          "type": "model_start",
+          "model": "llama1b",
+          "name": "Llama 3.2 · 1B",
+          "kind": "generation"
+        },
+        {
+          "received_ms": 7823.778,
+          "type": "status",
+          "model": "llama1b",
+          "message": "로컬 모델을 불러오는 중…"
+        },
+        {
+          "received_ms": 11651.282,
+          "type": "status",
+          "model": "llama1b",
+          "message": "첫 토큰 생성 중…"
+        },
+        {
+          "received_ms": 12436.241,
+          "type": "token",
+          "model": "llama1b",
+          "text": "",
+          "output_tokens": 1,
+          "elapsed_ms": 783.844,
+          "ttft_ms": 783.731,
+          "tokens_per_second": null,
+          "generation_ms": 0.0
+        },
+        {
+          "received_ms": 12603.128,
+          "type": "token",
+          "model": "llama1b",
+          "text": "",
+          "output_tokens": 2,
+          "elapsed_ms": 950.747,
+          "ttft_ms": 783.731,
+          "tokens_per_second": 5.989,
+          "generation_ms": 166.964
+        },
+        {
+          "received_ms": 12767.325,
+          "type": "token",
+          "model": "llama1b",
+          "text": "C. ",
+          "output_tokens": 3,
+          "elapsed_ms": 1114.951,
+          "ttft_ms": 783.731,
+          "tokens_per_second": 6.039,
+          "generation_ms": 331.176
+        },
+        {
+          "received_ms": 12956.334,
+          "type": "token",
+          "model": "llama1b",
+          "text": "",
+          "output_tokens": 4,
+          "elapsed_ms": 1303.919,
+          "ttft_ms": 783.731,
+          "tokens_per_second": 5.768,
+          "generation_ms": 520.133
+        },
+        {
+          "received_ms": 13118.301,
+          "type": "token",
+          "model": "llama1b",
+          "text": "",
+          "output_tokens": 5,
+          "elapsed_ms": 1465.891,
+          "ttft_ms": 783.731,
+          "tokens_per_second": 5.864,
+          "generation_ms": 682.113
+        },
+        {
+          "received_ms": 13118.421,
+          "type": "token",
+          "model": "llama1b",
+          "text": "6",
+          "output_tokens": 5,
+          "elapsed_ms": 1466.11,
+          "ttft_ms": 783.731,
+          "tokens_per_second": 5.864,
+          "generation_ms": 682.113
+        },
+        {
+          "received_ms": 13118.796,
+          "type": "model_result",
+          "model": "llama1b",
+          "kind": "generation",
+          "text": "C. 6",
+          "task_sha256": "36ecaf78e7a0a90c1c75ae7affc661096a597683819bb5a99d820674e6cd0f86",
+          "label": null,
+          "answer": null,
+          "valid_choice": false,
+          "input_tokens": 101,
+          "load_ms": 3826.507,
+          "output_tokens": 5,
+          "elapsed_ms": 1466.478,
+          "ttft_ms": 783.731,
+          "tokens_per_second": 5.864,
+          "generation_ms": 682.113,
+          "latency_ms": 1466.488,
+          "finish_reason": "eos"
+        },
+        {
+          "received_ms": 13118.892,
+          "type": "model_start",
+          "model": "llama3b",
+          "name": "Llama 3.2 · 3B",
+          "kind": "generation"
+        },
+        {
+          "received_ms": 13118.938,
+          "type": "status",
+          "model": "llama3b",
+          "message": "로컬 모델을 불러오는 중…"
+        },
+        {
+          "received_ms": 21811.092,
+          "type": "status",
+          "model": "llama3b",
+          "message": "첫 토큰 생성 중…"
+        },
+        {
+          "received_ms": 23610.134,
+          "type": "token",
+          "model": "llama3b",
+          "text": "",
+          "output_tokens": 1,
+          "elapsed_ms": 1798.871,
+          "ttft_ms": 1798.814,
+          "tokens_per_second": null,
+          "generation_ms": 0.0
+        },
+        {
+          "received_ms": 24055.262,
+          "type": "token",
+          "model": "llama3b",
+          "text": "",
+          "output_tokens": 2,
+          "elapsed_ms": 2243.993,
+          "ttft_ms": 1798.814,
+          "tokens_per_second": 2.247,
+          "generation_ms": 445.124
+        },
+        {
+          "received_ms": 24055.377,
+          "type": "token",
+          "model": "llama3b",
+          "text": "A",
+          "output_tokens": 2,
+          "elapsed_ms": 2244.22,
+          "ttft_ms": 1798.814,
+          "tokens_per_second": 2.247,
+          "generation_ms": 445.124
+        },
+        {
+          "received_ms": 24055.839,
+          "type": "model_result",
+          "model": "llama3b",
+          "kind": "generation",
+          "text": "A",
+          "task_sha256": "36ecaf78e7a0a90c1c75ae7affc661096a597683819bb5a99d820674e6cd0f86",
+          "label": "A",
+          "answer": "4",
+          "valid_choice": true,
+          "input_tokens": 101,
+          "load_ms": 8691.173,
+          "output_tokens": 2,
+          "elapsed_ms": 2244.661,
+          "ttft_ms": 1798.814,
+          "tokens_per_second": 2.247,
+          "generation_ms": 445.124,
+          "latency_ms": 2244.673,
+          "finish_reason": "eos"
+        },
+        {
+          "received_ms": 24055.907,
+          "type": "run_end",
+          "elapsed_ms": 24053.732
+        }
+      ]
+    },
+    {
+      "case": "general",
+      "task": {
+        "question": "Which gas do plants take in during photosynthesis?",
+        "choices": {
+          "A": "Oxygen",
+          "B": "Helium",
+          "C": "Carbon dioxide",
+          "D": "Nitrogen"
+        },
+        "instruction": "Choose the single best answer to the question from the supplied candidates. Use only information in the question and general knowledge. Reply with exactly one uppercase letter: the chosen candidate ID. Do not generate an explanation.",
+        "task_sha256": "70a55f45241f374b95ada478c466c0bbab01abaeff4dec484eaba0e720125e4e"
+      },
+      "expected": "C",
+      "correct": {
+        "laya": false,
+        "llama1b": false,
+        "llama3b": true
+      },
+      "results": {
+        "laya": {
+          "received_ms": 210.743,
+          "type": "model_result",
+          "model": "laya",
+          "kind": "classification",
+          "task_sha256": "70a55f45241f374b95ada478c466c0bbab01abaeff4dec484eaba0e720125e4e",
+          "label": "A",
+          "answer": "Oxygen",
+          "valid_choice": true,
+          "scores": [
+            {
+              "label": "A",
+              "answer": "Oxygen",
+              "score": 0.9122
+            },
+            {
+              "label": "C",
+              "answer": "Carbon dioxide",
+              "score": 0.0476
+            },
+            {
+              "label": "B",
+              "answer": "Helium",
+              "score": 0.0244
+            },
+            {
+              "label": "D",
+              "answer": "Nitrogen",
+              "score": 0.0158
+            }
+          ],
+          "text": "A",
+          "latency_ms": 194.915,
+          "load_ms": 0.0,
+          "input_tokens": 79,
+          "output_tokens": 0,
+          "ttft_ms": null,
+          "tokens_per_second": null,
+          "generation_ms": null,
+          "finish_reason": "classification"
+        },
+        "llama1b": {
+          "received_ms": 2530.142,
+          "type": "model_result",
+          "model": "llama1b",
+          "kind": "generation",
+          "text": "C. CARBON DIOXIDE",
+          "task_sha256": "70a55f45241f374b95ada478c466c0bbab01abaeff4dec484eaba0e720125e4e",
+          "label": null,
+          "answer": null,
+          "valid_choice": false,
+          "input_tokens": 106,
+          "load_ms": 0.0,
+          "output_tokens": 10,
+          "elapsed_ms": 2319.222,
+          "ttft_ms": 704.563,
+          "tokens_per_second": 5.576,
+          "generation_ms": 1614.09,
+          "latency_ms": 2319.233,
+          "finish_reason": "eos"
+        },
+        "llama3b": {
+          "received_ms": 4831.087,
+          "type": "model_result",
+          "model": "llama3b",
+          "kind": "generation",
+          "text": "C",
+          "task_sha256": "70a55f45241f374b95ada478c466c0bbab01abaeff4dec484eaba0e720125e4e",
+          "label": "C",
+          "answer": "Carbon dioxide",
+          "valid_choice": true,
+          "input_tokens": 106,
+          "load_ms": 0.0,
+          "output_tokens": 2,
+          "elapsed_ms": 2300.769,
+          "ttft_ms": 1856.633,
+          "tokens_per_second": 2.255,
+          "generation_ms": 443.553,
+          "latency_ms": 2300.778,
+          "finish_reason": "eos"
+        }
+      },
+      "events": [
+        {
+          "received_ms": 15.554,
+          "type": "run_start",
+          "order": [
+            "laya",
+            "llama1b",
+            "llama3b"
+          ],
+          "task": {
+            "question": "Which gas do plants take in during photosynthesis?",
+            "choices": {
+              "A": "Oxygen",
+              "B": "Helium",
+              "C": "Carbon dioxide",
+              "D": "Nitrogen"
+            },
+            "instruction": "Choose the single best answer to the question from the supplied candidates. Use only information in the question and general knowledge. Reply with exactly one uppercase letter: the chosen candidate ID. Do not generate an explanation.",
+            "task_sha256": "70a55f45241f374b95ada478c466c0bbab01abaeff4dec484eaba0e720125e4e"
+          }
+        },
+        {
+          "received_ms": 15.589,
+          "type": "model_start",
+          "model": "laya",
+          "name": "Laya · 제로샷 분류",
+          "kind": "classification"
+        },
+        {
+          "received_ms": 15.635,
+          "type": "status",
+          "model": "laya",
+          "message": "분류 중…"
+        },
+        {
+          "received_ms": 210.743,
+          "type": "model_result",
+          "model": "laya",
+          "kind": "classification",
+          "task_sha256": "70a55f45241f374b95ada478c466c0bbab01abaeff4dec484eaba0e720125e4e",
+          "label": "A",
+          "answer": "Oxygen",
+          "valid_choice": true,
+          "scores": [
+            {
+              "label": "A",
+              "answer": "Oxygen",
+              "score": 0.9122
+            },
+            {
+              "label": "C",
+              "answer": "Carbon dioxide",
+              "score": 0.0476
+            },
+            {
+              "label": "B",
+              "answer": "Helium",
+              "score": 0.0244
+            },
+            {
+              "label": "D",
+              "answer": "Nitrogen",
+              "score": 0.0158
+            }
+          ],
+          "text": "A",
+          "latency_ms": 194.915,
+          "load_ms": 0.0,
+          "input_tokens": 79,
+          "output_tokens": 0,
+          "ttft_ms": null,
+          "tokens_per_second": null,
+          "generation_ms": null,
+          "finish_reason": "classification"
+        },
+        {
+          "received_ms": 210.836,
+          "type": "model_start",
+          "model": "llama1b",
+          "name": "Llama 3.2 · 1B",
+          "kind": "generation"
+        },
+        {
+          "received_ms": 210.862,
+          "type": "status",
+          "model": "llama1b",
+          "message": "첫 토큰 생성 중…"
+        },
+        {
+          "received_ms": 915.608,
+          "type": "token",
+          "model": "llama1b",
+          "text": "",
+          "output_tokens": 1,
+          "elapsed_ms": 704.612,
+          "ttft_ms": 704.563,
+          "tokens_per_second": null,
+          "generation_ms": 0.0
+        },
+        {
+          "received_ms": 1087.38,
+          "type": "token",
+          "model": "llama1b",
+          "text": "",
+          "output_tokens": 2,
+          "elapsed_ms": 876.364,
+          "ttft_ms": 704.563,
+          "tokens_per_second": 5.823,
+          "generation_ms": 171.744
+        },
+        {
+          "received_ms": 1270.922,
+          "type": "token",
+          "model": "llama1b",
+          "text": "C. ",
+          "output_tokens": 3,
+          "elapsed_ms": 1059.915,
+          "ttft_ms": 704.563,
+          "tokens_per_second": 5.629,
+          "generation_ms": 355.293
+        },
+        {
+          "received_ms": 1449.946,
+          "type": "token",
+          "model": "llama1b",
+          "text": "",
+          "output_tokens": 4,
+          "elapsed_ms": 1238.936,
+          "ttft_ms": 704.563,
+          "tokens_per_second": 5.615,
+          "generation_ms": 534.309
+        },
+        {
+          "received_ms": 1626.532,
+          "type": "token",
+          "model": "llama1b",
+          "text": "",
+          "output_tokens": 5,
+          "elapsed_ms": 1415.548,
+          "ttft_ms": 704.563,
+          "tokens_per_second": 5.627,
+          "generation_ms": 710.921
+        },
+        {
+          "received_ms": 1803.512,
+          "type": "token",
+          "model": "llama1b",
+          "text": "CARBON ",
+          "output_tokens": 6,
+          "elapsed_ms": 1592.526,
+          "ttft_ms": 704.563,
+          "tokens_per_second": 5.631,
+          "generation_ms": 887.914
+        },
+        {
+          "received_ms": 1977.684,
+          "type": "token",
+          "model": "llama1b",
+          "text": "",
+          "output_tokens": 7,
+          "elapsed_ms": 1766.708,
+          "ttft_ms": 704.563,
+          "tokens_per_second": 5.649,
+          "generation_ms": 1062.075
+        },
+        {
+          "received_ms": 2155.644,
+          "type": "token",
+          "model": "llama1b",
+          "text": "",
+          "output_tokens": 8,
+          "elapsed_ms": 1944.621,
+          "ttft_ms": 704.563,
+          "tokens_per_second": 5.645,
+          "generation_ms": 1239.984
+        },
+        {
+          "received_ms": 2338.094,
+          "type": "token",
+          "model": "llama1b",
+          "text": "",
+          "output_tokens": 9,
+          "elapsed_ms": 2127.091,
+          "ttft_ms": 704.563,
+          "tokens_per_second": 5.624,
+          "generation_ms": 1422.463
+        },
+        {
+          "received_ms": 2529.747,
+          "type": "token",
+          "model": "llama1b",
+          "text": "",
+          "output_tokens": 10,
+          "elapsed_ms": 2318.723,
+          "ttft_ms": 704.563,
+          "tokens_per_second": 5.576,
+          "generation_ms": 1614.09
+        },
+        {
+          "received_ms": 2529.896,
+          "type": "token",
+          "model": "llama1b",
+          "text": "DIOXIDE",
+          "output_tokens": 10,
+          "elapsed_ms": 2318.981,
+          "ttft_ms": 704.563,
+          "tokens_per_second": 5.576,
+          "generation_ms": 1614.09
+        },
+        {
+          "received_ms": 2530.142,
+          "type": "model_result",
+          "model": "llama1b",
+          "kind": "generation",
+          "text": "C. CARBON DIOXIDE",
+          "task_sha256": "70a55f45241f374b95ada478c466c0bbab01abaeff4dec484eaba0e720125e4e",
+          "label": null,
+          "answer": null,
+          "valid_choice": false,
+          "input_tokens": 106,
+          "load_ms": 0.0,
+          "output_tokens": 10,
+          "elapsed_ms": 2319.222,
+          "ttft_ms": 704.563,
+          "tokens_per_second": 5.576,
+          "generation_ms": 1614.09,
+          "latency_ms": 2319.233,
+          "finish_reason": "eos"
+        },
+        {
+          "received_ms": 2530.237,
+          "type": "model_start",
+          "model": "llama3b",
+          "name": "Llama 3.2 · 3B",
+          "kind": "generation"
+        },
+        {
+          "received_ms": 2530.27,
+          "type": "status",
+          "model": "llama3b",
+          "message": "첫 토큰 생성 중…"
+        },
+        {
+          "received_ms": 4387.105,
+          "type": "token",
+          "model": "llama3b",
+          "text": "",
+          "output_tokens": 1,
+          "elapsed_ms": 1856.68,
+          "ttft_ms": 1856.633,
+          "tokens_per_second": null,
+          "generation_ms": 0.0
+        },
+        {
+          "received_ms": 4830.627,
+          "type": "token",
+          "model": "llama3b",
+          "text": "",
+          "output_tokens": 2,
+          "elapsed_ms": 2300.23,
+          "ttft_ms": 1856.633,
+          "tokens_per_second": 2.255,
+          "generation_ms": 443.553
+        },
+        {
+          "received_ms": 4830.716,
+          "type": "token",
+          "model": "llama3b",
+          "text": "C",
+          "output_tokens": 2,
+          "elapsed_ms": 2300.41,
+          "ttft_ms": 1856.633,
+          "tokens_per_second": 2.255,
+          "generation_ms": 443.553
+        },
+        {
+          "received_ms": 4831.087,
+          "type": "model_result",
+          "model": "llama3b",
+          "kind": "generation",
+          "text": "C",
+          "task_sha256": "70a55f45241f374b95ada478c466c0bbab01abaeff4dec484eaba0e720125e4e",
+          "label": "C",
+          "answer": "Carbon dioxide",
+          "valid_choice": true,
+          "input_tokens": 106,
+          "load_ms": 0.0,
+          "output_tokens": 2,
+          "elapsed_ms": 2300.769,
+          "ttft_ms": 1856.633,
+          "tokens_per_second": 2.255,
+          "generation_ms": 443.553,
+          "latency_ms": 2300.778,
+          "finish_reason": "eos"
+        },
+        {
+          "received_ms": 4831.153,
+          "type": "run_end",
+          "elapsed_ms": 4815.67
+        }
+      ]
+    },
+    {
+      "case": "robot",
+      "task": {
+        "question": "An open gripper is touching a cube but is not holding it. What should the robot do next to pick it up?",
+        "choices": {
+          "A": "Close the gripper around the cube.",
+          "B": "Transport the cube to the destination.",
+          "C": "Open the gripper.",
+          "D": "Wait without moving."
+        },
+        "instruction": "Choose the single best answer to the question from the supplied candidates. Use only information in the question and general knowledge. Reply with exactly one uppercase letter: the chosen candidate ID. Do not generate an explanation.",
+        "task_sha256": "13791e3c67697fc55cadc78db919652c314d917e417704745e1209374d2d0ba0"
+      },
+      "expected": "A",
+      "correct": {
+        "laya": false,
+        "llama1b": false,
+        "llama3b": false
+      },
+      "results": {
+        "laya": {
+          "received_ms": 291.63,
+          "type": "model_result",
+          "model": "laya",
+          "kind": "classification",
+          "task_sha256": "13791e3c67697fc55cadc78db919652c314d917e417704745e1209374d2d0ba0",
+          "label": "C",
+          "answer": "Open the gripper.",
+          "valid_choice": true,
+          "scores": [
+            {
+              "label": "C",
+              "answer": "Open the gripper.",
+              "score": 0.7925
+            },
+            {
+              "label": "A",
+              "answer": "Close the gripper around the cube.",
+              "score": 0.1177
+            },
+            {
+              "label": "B",
+              "answer": "Transport the cube to the destination.",
+              "score": 0.05
+            },
+            {
+              "label": "D",
+              "answer": "Wait without moving.",
+              "score": 0.0398
+            }
+          ],
+          "text": "C",
+          "latency_ms": 274.219,
+          "load_ms": 0.0,
+          "input_tokens": 110,
+          "output_tokens": 0,
+          "ttft_ms": null,
+          "tokens_per_second": null,
+          "generation_ms": null,
+          "finish_reason": "classification"
+        },
+        "llama1b": {
+          "received_ms": 1395.88,
+          "type": "model_result",
+          "model": "llama1b",
+          "kind": "generation",
+          "text": "A.",
+          "task_sha256": "13791e3c67697fc55cadc78db919652c314d917e417704745e1209374d2d0ba0",
+          "label": null,
+          "answer": null,
+          "valid_choice": false,
+          "input_tokens": 135,
+          "load_ms": 0.0,
+          "output_tokens": 3,
+          "elapsed_ms": 1104.089,
+          "ttft_ms": 747.124,
+          "tokens_per_second": 5.61,
+          "generation_ms": 356.489,
+          "latency_ms": 1104.098,
+          "finish_reason": "eos"
+        },
+        "llama3b": {
+          "received_ms": 4023.492,
+          "type": "model_result",
+          "model": "llama3b",
+          "kind": "generation",
+          "text": "C",
+          "task_sha256": "13791e3c67697fc55cadc78db919652c314d917e417704745e1209374d2d0ba0",
+          "label": "C",
+          "answer": "Open the gripper.",
+          "valid_choice": true,
+          "input_tokens": 135,
+          "load_ms": 0.0,
+          "output_tokens": 2,
+          "elapsed_ms": 2627.391,
+          "ttft_ms": 2150.169,
+          "tokens_per_second": 2.101,
+          "generation_ms": 476.034,
+          "latency_ms": 2627.402,
+          "finish_reason": "eos"
+        }
+      },
+      "events": [
+        {
+          "received_ms": 17.177,
+          "type": "run_start",
+          "order": [
+            "laya",
+            "llama1b",
+            "llama3b"
+          ],
+          "task": {
+            "question": "An open gripper is touching a cube but is not holding it. What should the robot do next to pick it up?",
+            "choices": {
+              "A": "Close the gripper around the cube.",
+              "B": "Transport the cube to the destination.",
+              "C": "Open the gripper.",
+              "D": "Wait without moving."
+            },
+            "instruction": "Choose the single best answer to the question from the supplied candidates. Use only information in the question and general knowledge. Reply with exactly one uppercase letter: the chosen candidate ID. Do not generate an explanation.",
+            "task_sha256": "13791e3c67697fc55cadc78db919652c314d917e417704745e1209374d2d0ba0"
+          }
+        },
+        {
+          "received_ms": 17.199,
+          "type": "model_start",
+          "model": "laya",
+          "name": "Laya · 제로샷 분류",
+          "kind": "classification"
+        },
+        {
+          "received_ms": 17.242,
+          "type": "status",
+          "model": "laya",
+          "message": "분류 중…"
+        },
+        {
+          "received_ms": 291.63,
+          "type": "model_result",
+          "model": "laya",
+          "kind": "classification",
+          "task_sha256": "13791e3c67697fc55cadc78db919652c314d917e417704745e1209374d2d0ba0",
+          "label": "C",
+          "answer": "Open the gripper.",
+          "valid_choice": true,
+          "scores": [
+            {
+              "label": "C",
+              "answer": "Open the gripper.",
+              "score": 0.7925
+            },
+            {
+              "label": "A",
+              "answer": "Close the gripper around the cube.",
+              "score": 0.1177
+            },
+            {
+              "label": "B",
+              "answer": "Transport the cube to the destination.",
+              "score": 0.05
+            },
+            {
+              "label": "D",
+              "answer": "Wait without moving.",
+              "score": 0.0398
+            }
+          ],
+          "text": "C",
+          "latency_ms": 274.219,
+          "load_ms": 0.0,
+          "input_tokens": 110,
+          "output_tokens": 0,
+          "ttft_ms": null,
+          "tokens_per_second": null,
+          "generation_ms": null,
+          "finish_reason": "classification"
+        },
+        {
+          "received_ms": 291.724,
+          "type": "model_start",
+          "model": "llama1b",
+          "name": "Llama 3.2 · 1B",
+          "kind": "generation"
+        },
+        {
+          "received_ms": 291.761,
+          "type": "status",
+          "model": "llama1b",
+          "message": "첫 토큰 생성 중…"
+        },
+        {
+          "received_ms": 1039.037,
+          "type": "token",
+          "model": "llama1b",
+          "text": "",
+          "output_tokens": 1,
+          "elapsed_ms": 747.166,
+          "ttft_ms": 747.124,
+          "tokens_per_second": null,
+          "generation_ms": 0.0
+        },
+        {
+          "received_ms": 1214.631,
+          "type": "token",
+          "model": "llama1b",
+          "text": "",
+          "output_tokens": 2,
+          "elapsed_ms": 922.723,
+          "ttft_ms": 747.124,
+          "tokens_per_second": 5.697,
+          "generation_ms": 175.538
+        },
+        {
+          "received_ms": 1395.532,
+          "type": "token",
+          "model": "llama1b",
+          "text": "",
+          "output_tokens": 3,
+          "elapsed_ms": 1103.661,
+          "ttft_ms": 747.124,
+          "tokens_per_second": 5.61,
+          "generation_ms": 356.489
+        },
+        {
+          "received_ms": 1395.65,
+          "type": "token",
+          "model": "llama1b",
+          "text": "A.",
+          "output_tokens": 3,
+          "elapsed_ms": 1103.863,
+          "ttft_ms": 747.124,
+          "tokens_per_second": 5.61,
+          "generation_ms": 356.489
+        },
+        {
+          "received_ms": 1395.88,
+          "type": "model_result",
+          "model": "llama1b",
+          "kind": "generation",
+          "text": "A.",
+          "task_sha256": "13791e3c67697fc55cadc78db919652c314d917e417704745e1209374d2d0ba0",
+          "label": null,
+          "answer": null,
+          "valid_choice": false,
+          "input_tokens": 135,
+          "load_ms": 0.0,
+          "output_tokens": 3,
+          "elapsed_ms": 1104.089,
+          "ttft_ms": 747.124,
+          "tokens_per_second": 5.61,
+          "generation_ms": 356.489,
+          "latency_ms": 1104.098,
+          "finish_reason": "eos"
+        },
+        {
+          "received_ms": 1395.978,
+          "type": "model_start",
+          "model": "llama3b",
+          "name": "Llama 3.2 · 3B",
+          "kind": "generation"
+        },
+        {
+          "received_ms": 1396.026,
+          "type": "status",
+          "model": "llama3b",
+          "message": "첫 토큰 생성 중…"
+        },
+        {
+          "received_ms": 3546.467,
+          "type": "token",
+          "model": "llama3b",
+          "text": "",
+          "output_tokens": 1,
+          "elapsed_ms": 2150.23,
+          "ttft_ms": 2150.169,
+          "tokens_per_second": null,
+          "generation_ms": 0.0
+        },
+        {
+          "received_ms": 4022.501,
+          "type": "token",
+          "model": "llama3b",
+          "text": "",
+          "output_tokens": 2,
+          "elapsed_ms": 2626.274,
+          "ttft_ms": 2150.169,
+          "tokens_per_second": 2.101,
+          "generation_ms": 476.034
+        },
+        {
+          "received_ms": 4022.625,
+          "type": "token",
+          "model": "llama3b",
+          "text": "C",
+          "output_tokens": 2,
+          "elapsed_ms": 2626.531,
+          "ttft_ms": 2150.169,
+          "tokens_per_second": 2.101,
+          "generation_ms": 476.034
+        },
+        {
+          "received_ms": 4023.492,
+          "type": "model_result",
+          "model": "llama3b",
+          "kind": "generation",
+          "text": "C",
+          "task_sha256": "13791e3c67697fc55cadc78db919652c314d917e417704745e1209374d2d0ba0",
+          "label": "C",
+          "answer": "Open the gripper.",
+          "valid_choice": true,
+          "input_tokens": 135,
+          "load_ms": 0.0,
+          "output_tokens": 2,
+          "elapsed_ms": 2627.391,
+          "ttft_ms": 2150.169,
+          "tokens_per_second": 2.101,
+          "generation_ms": 476.034,
+          "latency_ms": 2627.402,
+          "finish_reason": "eos"
+        },
+        {
+          "received_ms": 4023.576,
+          "type": "run_end",
+          "elapsed_ms": 4006.446
+        }
+      ]
+    }
+  ],
+  "same_responses_as_original_snapshot": true
+}

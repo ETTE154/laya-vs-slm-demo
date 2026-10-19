@@ -1,0 +1,17 @@
+{
+  "state": "2+3?",
+  "questions": {
+    "answer": {
+      "type": "choice",
+      "instructions": "Choose the single best answer to the question from the supplied candidates. Use only information in the question and general knowledge. Reply with exactly one uppercase letter: the chosen candidate ID. Do not generate an explanation.",
+      "criteria": {
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7"
+      }
+    }
+  },
+  "max_len": 4096,
+  "head_max_len": 640
+}

@@ -1,0 +1,45 @@
+{
+  "snapshot_date": "2026-10-19",
+  "adaptations": [
+    "Use repository-root models/ directory; checkpoint revisions and weights unchanged.",
+    "Remove unused legacy --benchmark CLI; current shared-task behavior unchanged."
+  ],
+  "files": [
+    {
+      "source": "demo/index.html",
+      "source_sha256": "5e850128713daa17982cdff24f3074ce003de65c47c07a0817dd6a0b754fdaeb",
+      "exported": "demo/index.html",
+      "exported_sha256": "eece616b2cc1c6fbf7db1a411af2ece9f88d773a500ead978270071c7664f818"
+    },
+    {
+      "source": "demo/live_inference.py",
+      "source_sha256": "f0919ab398c83ba1b9ffa6655b40ab774cfb910a76cacffa1bbf7c51e1bac988",
+      "exported": "demo/live_inference.py",
+      "exported_sha256": "a5a2d7f13833732576d12ed7f048f80aa2ff08ca4708e40e8f8782aa4eeac5a7"
+    },
+    {
+      "source": "demo/shared_task.py",
+      "source_sha256": "dd6de7a69ea20d3b7ee89025628199e34f96e3d6da17f10f461c0f1beb804ef3",
+      "exported": "demo/shared_task.py",
+      "exported_sha256": "b0a51b72303ef30878600121fcc4616c328329f25f69facafd9eb3bd51eebbd2"
+    },
+    {
+      "source": "demo/server.py",
+      "source_sha256": "4eff691464486a36dea2b328199c329908c2b80bef67310f4481c122cb98540e",
+      "exported": "demo/server.py",
+      "exported_sha256": "e1d27ae5d43f065341ab84cd9a19ab879f28f5fd7bd1530bbead5356a7b29fec"
+    },
+    {
+      "source": "demo/test_streaming.py",
+      "source_sha256": "754a2f566a83c92afcdf31135cfe4c70a71fe389cca0446c519873a5f6a8bdb7",
+      "exported": "demo/test_streaming.py",
+      "exported_sha256": "5d3d02a938c79052831c47f2b0b237e169252e2455d7f7b61618bc11fa3f64d0"
+    },
+    {
+      "source": "demo/test_shared_task.py",
+      "source_sha256": "8466980bdf5b6b7ab204250b1a63eca938d2c0f074b1321fa1fb52390bb17fcf",
+      "exported": "demo/test_shared_task.py",
+      "exported_sha256": "cda989dc1e5ea8466a1ff94025ccbe9376dd657ace95b929b6a0c0a3d22d76fc"
+    }
+  ]
+}

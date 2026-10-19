@@ -1,0 +1,28 @@
+{
+  "model": "laya-rl-agent",
+  "answers": {
+    "answer": {
+      "type": "choice",
+      "choice": "A",
+      "probabilities": {
+        "A": 0.3519,
+        "B": 0.1818,
+        "C": 0.1739,
+        "D": 0.2924
+      },
+      "confidence": 0.0325,
+      "answer_confidence": 0.3519,
+      "action": {
+        "act_probability": 1.0
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 69,
+    "output_tokens": 0,
+    "state_tokens": 4,
+    "state_tokens_dropped": 0,
+    "truncated": false,
+    "truncated_questions": []
+  }
+}

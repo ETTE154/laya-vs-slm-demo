@@ -1,0 +1,5 @@
+An open gripper is touching a cube but is not holding it. What should the robot do next to pick it up?
+A. Close the gripper around the cube.
+B. Transport the cube to the destination.
+C. Open the gripper.
+D. Wait without moving.

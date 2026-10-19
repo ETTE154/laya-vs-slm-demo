@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lab Meeting · Local Model Comparison</title>
+<style>
+:root{color-scheme:dark;--bg:#08131e;--panel:#112334;--surface:#0b1c2b;--line:#274153;--muted:#9bb2c3;--text:#eaf3fa;--teal:#57d9c4;--blue:#74aaff;--red:#ff9a9a;--orange:#ffba75}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 'Segoe UI','Malgun Gothic',sans-serif}.wrap{max-width:1510px;padding:30px 34px 34px;margin:auto}header{display:flex;justify-content:space-between;align-items:center;gap:22px;margin-bottom:25px}.eyebrow{color:var(--teal);font-size:11px;font-weight:700;letter-spacing:.17em}h1{margin:4px 0;font-size:29px;letter-spacing:-.04em;line-height:1.4}.sub,.small{color:var(--muted);font-size:12px}.sub{font-size:13px;margin:5px 0 0}.environment{text-align:right;color:var(--muted);font-size:12px;max-width:300px}.local{display:inline-flex;align-items:center;gap:7px;color:var(--teal);border:1px solid var(--line);border-radius:20px;padding:4px 10px;margin-bottom:5px;font-size:11px}.local:before{content:'';height:6px;width:6px;background:var(--teal);border-radius:50%}.grid{display:grid;grid-template-columns:minmax(300px,.8fr) minmax(500px,1.2fr);gap:22px;align-items:start}.input-panel{position:sticky;top:24px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px}.section-title{font-size:17px;font-weight:700;margin:0 0 14px;letter-spacing:-.02em}.section-title span{color:var(--teal);margin-right:8px;font-size:12px}.input-label{display:block;font-size:13px;color:var(--muted);margin:0 0 8px}textarea{display:block;width:100%;min-height:310px;resize:vertical;border:1px solid #355267;border-radius:9px;background:#091b29;color:var(--text);padding:16px;font:inherit;line-height:1.75}textarea::placeholder{color:#6f8a9d}textarea:focus{outline:2px solid var(--teal);outline-offset:2px}textarea:disabled{opacity:.75}button{font:inherit}#run{width:100%;background:var(--teal);color:#052a28;border:0;border-radius:8px;padding:13px 18px;margin-top:16px;font-weight:750;cursor:pointer}#run:hover:not(:disabled){background:#7ce4d3}#run:focus-visible{outline:2px solid white;outline-offset:3px}#run:disabled{opacity:.45;cursor:default}.input-foot{display:flex;justify-content:space-between;gap:12px;font-size:11px;color:var(--muted);margin:8px 0 0}.explain{color:var(--muted);font-size:12px;margin:19px 0 0;padding-top:16px;border-top:1px solid var(--line)}.run-status{margin-top:18px;padding:12px 14px;border-radius:8px;border:1px solid var(--line);color:var(--muted);background:var(--surface);font-size:12px;overflow-wrap:anywhere}.run-status.running{color:var(--teal)}.run-status.error{color:var(--red);border-color:#6e3b46}.results-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px}.results-head .section-title{margin:0}.sequence{color:var(--muted);font-size:11px}.cards{display:grid;gap:14px}.card{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden;min-width:0}.card.running{border-color:var(--teal)}.card.failed{border-color:#8a4a56}.card-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 18px;border-bottom:1px solid var(--line)}.model-name{font-weight:700;font-size:15px;line-height:1.4}.model-kind{font-size:11px;color:var(--muted);margin-top:2px}.state{font-size:11px;color:var(--muted);white-space:nowrap;display:flex;gap:6px;align-items:center}.running .state{color:var(--teal)}.running .state:before{content:'';height:6px;width:6px;border:1px solid var(--teal);border-radius:50%;animation:pulse 1s ease-in-out infinite}.done .state{color:var(--teal)}.failed .state{color:var(--red)}.body{padding:16px 18px}.response{margin:0;font:14px/1.8 'Segoe UI','Malgun Gothic',sans-serif;white-space:pre-wrap;overflow-wrap:anywhere;min-height:65px;max-height:360px;overflow-y:auto;scrollbar-color:#355267 transparent}.response.empty{color:#7892a5;font-size:13px}.response.error{color:var(--red)}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);gap:1px;background:var(--line)}.metric{padding:9px 12px;background:var(--surface);min-width:0}.metric span{display:block;font-size:10px;color:var(--muted);margin-bottom:2px}.metric strong{font-size:14px;font-weight:650;font-variant-numeric:tabular-nums;white-space:nowrap}.metric.speed strong{color:var(--teal)}.details{margin-top:12px;font-size:11px;color:var(--muted)}summary{cursor:pointer;line-height:1.6}.score-list{display:grid;gap:7px;margin-top:10px}.score-row{display:grid;grid-template-columns:80px 1fr 44px;align-items:center;gap:9px;font-variant-numeric:tabular-nums}.score-track{height:5px;border-radius:5px;background:#263e50;overflow:hidden}.score-fill{height:100%;background:var(--blue);border-radius:5px}.score-value{text-align:right}.label-set{font-size:11px;color:var(--muted);overflow-wrap:anywhere;padding-top:9px}.finish{font-size:10px;color:var(--muted);padding-top:9px}.footer{font-size:11px;color:var(--muted);margin-top:20px;line-height:1.8}a{color:var(--blue)}@keyframes pulse{50%{opacity:.3}}@media(prefers-reduced-motion:reduce){.running .state:before{animation:none}}@media(min-width:1250px){textarea{min-height:395px}}@media(max-width:950px){.wrap{padding:22px 18px}.grid{grid-template-columns:1fr}.input-panel{position:static}textarea{min-height:200px}header{align-items:flex-start}.environment{max-width:200px}.sequence{font-size:10px}}@media(max-width:540px){header{display:block}.environment{text-align:left;max-width:none;margin-top:12px}h1{font-size:25px}.input-panel{padding:18px}.results-head{align-items:flex-start}.sequence{max-width:150px;text-align:right}.metric{padding:8px}.metric strong{font-size:12px}.card-head,.body{padding:14px}.model-name{font-size:14px}}
+.example{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.75 'Segoe UI','Malgun Gothic',sans-serif;color:var(--muted);margin:10px 0}.score-row{grid-template-columns:minmax(90px,1.5fr) minmax(35px,1fr) 44px}.score-row>span:first-child{overflow-wrap:anywhere}.finish{overflow-wrap:anywhere}#taskHash{font-size:10px;overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div><div class="eyebrow">LAB MEETING / LOCAL EXPERIMENT</div><h1>같은 질문, 같은 보기로 비교</h1><p class="sub">Laya 제로샷 분류 모델과 SLM 1B · 3B가 동일한 과제를 순서대로 수행합니다.</p></div>
+    <div class="environment"><div class="local">LOCAL INFERENCE</div><div id="environment">실행 환경 확인 중…</div></div>
+  </header>
+  <main class="grid">
+    <section class="input-panel" aria-labelledby="inputHeading">
+      <h2 class="section-title" id="inputHeading"><span>01</span>입력</h2>
+      <label class="input-label" for="input">질문과 답변 후보를 함께 입력하세요. 세 모델이 같은 보기에서 답을 선택합니다.</label>
+      <textarea id="input" placeholder="2+3?&#10;A. 4&#10;B. 5&#10;C. 6&#10;D. 7" maxlength="2000" spellcheck="false"></textarea>
+      <div class="input-foot"><span>동일한 입력을 세 모델에 전달</span><span>Ctrl + Enter 실행</span></div>
+      <button id="run" disabled>모델 실행 →</button>
+      <p class="explain">보기는 A. 답변, B. 답변처럼 한 줄에 하나씩 작성하세요.<br>Laya는 보기별 점수를 계산하고, SLM은 선택한 보기의 문자를 생성합니다. 생성 문자는 실시간으로 표시됩니다.</p>
+      <details class="details"><summary>입력 예시</summary><pre class="example">2+3?
+A. 4
+B. 5
+C. 6
+D. 7
+
+로봇 제어 예시
+Pick up the cube. The gripper is touching it, but it is not holding it yet. What should the robot do next?
+A. Close the gripper to grasp the cube.
+B. Lift the cube.
+C. Release the cube.
+D. Wait.</pre></details>
+      <div id="runStatus" class="run-status" role="status" aria-live="polite">입력 후 실행하세요.</div>
+    </section>
+    <section aria-labelledby="resultsHeading">
+      <div class="results-head"><h2 class="section-title" id="resultsHeading"><span>02</span>결과</h2><div class="sequence">Laya → SLM 1B → SLM 3B</div></div>
+      <div id="cards" class="cards"></div>
+      <details id="sharedTask" class="details" hidden><summary>세 모델에 전달한 공통 과제</summary><pre id="taskText" class="example"></pre><div id="taskHash" class="small"></div></details>
+      <p class="footer">생성 속도 = (생성 토큰 수 − 1) / 첫 토큰부터 마지막 토큰까지의 시간. 첫 토큰 시간(TTFT)은 입력 처리와 prefill을 포함하며, 모델 로딩 시간은 별도입니다. 종료 토큰(EOS)도 토큰 수에 포함합니다. 보기 문자만 생성하므로 토큰 수가 적어 속도 편차가 큽니다.<br>Laya는 텍스트를 생성하지 않으므로 생성 토큰은 0이며, 생성 속도와 첫 토큰 시간은 표시하지 않습니다. 정답을 별도로 입력받지 않아 정확도는 자동으로 계산하지 않습니다. 실제 로봇 연결은 없습니다.</p>
+    </section>
+  </main>
+</div>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const MODEL_DEFS = [
+  {key:'laya',name:'Laya',kind:'classification'},
+  {key:'llama1b',name:'Llama 3.2 · 1B',kind:'generation'},
+  {key:'llama3b',name:'Llama 3.2 · 3B',kind:'generation'}
+];
+const cards = new Map();
+let running = false;
+let runEnded = false;
+let failedModels = 0;
+let invalidModels = 0;
+let currentTask = null;
+
+function element(tag, className, text) {
+  const el = document.createElement(tag);
+  if (className) el.className = className;
+  if (text !== undefined) el.textContent = text;
+  return el;
+}
+function number(value) { return typeof value === 'number' && Number.isFinite(value) ? value : null; }
+function duration(value) { const n = number(value); return n === null ? '—' : n.toLocaleString('en-US',{maximumFractionDigits:1}) + ' ms'; }
+function count(value) { const n = number(value); return n === null ? '—' : n.toLocaleString('en-US',{maximumFractionDigits:0}); }
+function speed(value) { const n = number(value); return n === null ? '—' : n.toFixed(1) + ' tok/s'; }
+function setStatus(message, state = '') { $('runStatus').textContent = message; $('runStatus').className = 'run-status' + (state ? ' ' + state : ''); }
+function updateRunButton() { $('run').disabled = running || !$('input').value.trim(); }
+
+function makeCard(model) {
+  const card = element('article','card');
+  card.setAttribute('aria-label',model.name + ' 추론 결과');
+  const head = element('div','card-head');
+  const heading = element('div');
+  const name = element('div','model-name',model.name);
+  heading.append(name,element('div','model-kind',model.kind === 'classification' ? '제로샷 분류 · 입력한 보기에서 선택' : 'SLM · 선택한 보기 문자 생성'));
+  const state = element('div','state','대기');
+  head.append(heading,state);
+  const body = element('div','body');
+  const output = element('pre','response empty','실행 후 결과가 표시됩니다.');
+  body.append(output);
+  const details = element('details','details');
+  if (model.kind === 'classification') {
+    details.append(element('summary','', '보기별 점수 보기'));
+    details.append(element('div','label-set','점수는 후보 간 상대 점수이며 검증된 정확도나 안전 확률이 아닙니다.'));
+    body.append(details);
+  }
+  const metrics = element('div','metrics');
+  const values = {};
+  for (const [key,label] of [['speed','생성 속도'],['ttft','첫 토큰 시간'],['latency','추론 시간'],['output','생성 토큰'],['input','입력 토큰'],['load','모델 로딩']]) {
+    const metric = element('div','metric' + (key === 'speed' ? ' speed' : ''));
+    const value = element('strong','',key === 'output' && model.kind === 'classification' ? '0' : '—');
+    metric.append(element('span','',label),value);
+    values[key] = value;
+    metrics.append(metric);
+  }
+  const raw = element('div','finish');
+  const finish = element('div','finish');
+  body.append(raw,finish);
+  card.append(head,body,metrics);
+  $('cards').append(card);
+  const ref = {card,name,state,output,details,raw,finish,values,kind:model.kind,text:'',started:false,completed:false,failed:false};
+  cards.set(model.key,ref);
+  return ref;
+}
+function resetCards() {
+  $('cards').replaceChildren();
+  cards.clear();
+  MODEL_DEFS.forEach(makeCard);
+}
+function showOutput(ref,text,empty = false,error = false) {
+  ref.output.textContent = text;
+  ref.output.className = 'response' + (empty ? ' empty' : '') + (error ? ' error' : '');
+}
+function updateMetrics(ref,event) {
+  if ('latency_ms' in event) ref.values.latency.textContent = duration(event.latency_ms);
+  else if ('elapsed_ms' in event) ref.values.latency.textContent = duration(event.elapsed_ms);
+  if ('input_tokens' in event) ref.values.input.textContent = count(event.input_tokens);
+  if ('load_ms' in event) ref.values.load.textContent = duration(event.load_ms);
+  if (ref.kind === 'classification') {
+    ref.values.output.textContent = '0';
+    ref.values.speed.textContent = '—';
+    ref.values.ttft.textContent = '—';
+  } else {
+    if ('output_tokens' in event) ref.values.output.textContent = count(event.output_tokens);
+    if ('tokens_per_second' in event) ref.values.speed.textContent = speed(event.tokens_per_second);
+    if ('ttft_ms' in event) ref.values.ttft.textContent = duration(event.ttft_ms);
+  }
+}
+function renderScores(ref,scores) {
+  if (!Array.isArray(scores) || ref.kind !== 'classification') return;
+  const oldList = ref.details.querySelector('.score-list');
+  if (oldList) oldList.remove();
+  const list = element('div','score-list');
+  for (const candidate of scores) {
+    const row = element('div','score-row');
+    const track = element('div','score-track');
+    const fill = element('div','score-fill');
+    const value = number(candidate.score);
+    fill.style.width = (value === null ? 0 : Math.max(0,Math.min(1,value)) * 100) + '%';
+    track.append(fill);
+    const candidateText = String(candidate.label ?? '') + ' · ' + String(candidate.answer ?? '');
+    const candidateLabel = element('span','',candidateText);
+    candidateLabel.title = candidateText;
+    row.append(candidateLabel,track,element('span','score-value',value === null ? '—' : value.toFixed(3)));
+    list.append(row);
+  }
+  ref.details.append(list);
+}
+function renderSharedTask(task) {
+  if (!task || typeof task.question !== 'string' || !task.choices || typeof task.choices !== 'object') throw Error('공통 질문과 보기를 확인할 수 없습니다.');
+  currentTask = task;
+  $('taskText').textContent = task.question + '\n\n' + Object.entries(task.choices).map(([label,answer]) => label + '. ' + answer).join('\n');
+  $('taskHash').textContent = task.task_sha256 ? '공통 과제 SHA-256: ' + task.task_sha256 : '';
+  $('sharedTask').hidden = false;
+}
+function handleEvent(event) {
+  if (!event || typeof event.type !== 'string') throw Error('서버 응답 형식을 확인할 수 없습니다.');
+  if (event.type === 'run_start') {
+    renderSharedTask(event.task);
+    setStatus('같은 질문과 보기로 세 모델을 순서대로 실행합니다.','running');
+    for (const ref of cards.values()) { ref.state.textContent = '순서 대기'; showOutput(ref,'앞선 모델의 실행이 끝나면 시작합니다.',true); }
+    return;
+  }
+  if (event.type === 'error') throw Error(event.message || '모델 실행에 실패했습니다.');
+  if (event.type === 'run_end') {
+    runEnded = true;
+    const suffix = number(event.elapsed_ms) === null ? '' : ' · 전체 ' + (event.elapsed_ms / 1000).toFixed(1) + '초';
+    const issues = [];
+    if (failedModels) issues.push('모델 오류 ' + failedModels + '건');
+    if (invalidModels) issues.push('보기 형식 오류 ' + invalidModels + '건');
+    setStatus((issues.length ? '실행 종료 · ' + issues.join(' · ') : '모든 모델의 추론이 완료되었습니다.') + suffix,issues.length ? 'error' : '');
+    return;
+  }
+  const ref = cards.get(event.model);
+  if (!ref) return;
+  if (event.type === 'model_start') {
+    ref.started = true;
+    ref.card.className = 'card running';
+    ref.state.textContent = '실행 준비';
+    if (typeof event.name === 'string') ref.name.textContent = event.name;
+    showOutput(ref,'모델을 준비하고 있습니다…',true);
+    setStatus(ref.name.textContent + ' 실행 중…','running');
+  } else if (event.type === 'status') {
+    ref.state.textContent = '실행 중';
+    if (!ref.text) showOutput(ref,event.message || '추론 중…',true);
+  } else if (event.type === 'token') {
+    ref.state.textContent = '생성 중';
+    ref.text += typeof event.text === 'string' ? event.text : '';
+    showOutput(ref,ref.text || '첫 토큰 수신 중…',!ref.text);
+    ref.output.scrollTop = ref.output.scrollHeight;
+    updateMetrics(ref,event);
+  } else if (event.type === 'model_result') {
+    if (!currentTask || event.task_sha256 !== currentTask.task_sha256) throw Error('모델별 공통 과제가 일치하지 않습니다.');
+    ref.completed = true;
+    const valid = event.valid_choice === true;
+    ref.card.className = valid ? 'card done' : 'card failed';
+    ref.state.textContent = valid ? '완료' : '보기 형식 오류';
+    const rawText = String(event.text ?? ref.text ?? '');
+    if (valid) {
+      showOutput(ref,String(event.label) + ' · ' + String(event.answer ?? ''));
+      if (ref.kind === 'generation') ref.raw.textContent = '생성 원문: ' + JSON.stringify(rawText);
+    } else {
+      invalidModels += 1;
+      showOutput(ref,rawText || '(생성된 텍스트 없음)',false,true);
+      ref.raw.textContent = '입력한 보기 문자를 선택하지 않았습니다. 출력 원문을 그대로 표시합니다.';
+    }
+    ref.text = rawText;
+    updateMetrics(ref,event);
+    renderScores(ref,event.scores);
+    if (event.finish_reason) ref.finish.textContent = event.finish_reason === 'length' ? '길이 제한 · 최대 16 토큰' : '종료: ' + String(event.finish_reason);
+  } else if (event.type === 'model_error') {
+    ref.failed = true;
+    failedModels += 1;
+    ref.card.className = 'card failed';
+    ref.state.textContent = '오류';
+    showOutput(ref,event.message || '모델 실행에 실패했습니다.',false,true);
+  }
+}
+function parseLine(line) {
+  if (!line.trim()) return;
+  let event;
+  try { event = JSON.parse(line); } catch (_) { throw Error('스트리밍 응답을 읽지 못했습니다.'); }
+  handleEvent(event);
+}
+async function readStream(response) {
+  if (!response.body) throw Error('이 브라우저에서 스트리밍 응답을 사용할 수 없습니다.');
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder('utf-8');
+  let pending = '';
+  let reachedEnd = false;
+  try {
+    while (true) {
+      const {done,value} = await reader.read();
+      pending += done ? decoder.decode() : decoder.decode(value,{stream:true});
+      let newline;
+      while ((newline = pending.indexOf('\n')) !== -1) {
+        const line = pending.slice(0,newline);
+        pending = pending.slice(newline + 1);
+        parseLine(line);
+      }
+      if (done) { reachedEnd = true; break; }
+    }
+    if (pending.trim()) parseLine(pending);
+  } finally {
+    if (!reachedEnd) { try { await reader.cancel(); } catch (_) {} }
+    reader.releaseLock();
+  }
+  if (!runEnded) throw Error('응답 연결이 종료되었습니다. 완료되지 않은 모델이 있습니다.');
+}
+async function runModels() {
+  const input = $('input').value.trim();
+  if (running || !input) return;
+  running = true;
+  runEnded = false;
+  failedModels = 0;
+  invalidModels = 0;
+  currentTask = null;
+  $('sharedTask').hidden = true;
+  $('taskText').textContent = '';
+  $('taskHash').textContent = '';
+  $('input').disabled = true;
+  $('run').textContent = '순차 추론 중…';
+  updateRunButton();
+  resetCards();
+  setStatus('서버에 입력을 전달하고 있습니다…','running');
+  try {
+    const response = await fetch('/api/stream',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/x-ndjson'},body:JSON.stringify({input})});
+    if (!response.ok) {
+      let message = '서버 응답 오류 (' + response.status + ')';
+      try { const error = await response.json(); message = error.error || error.message || message; } catch (_) {}
+      throw Error(message);
+    }
+    await readStream(response);
+  } catch (error) {
+    setStatus('오류: ' + (error.message || String(error)),'error');
+    for (const ref of cards.values()) {
+      if (ref.completed || ref.failed) continue;
+      ref.card.className = 'card failed';
+      ref.state.textContent = ref.started ? '중단' : '미실행';
+      if (!ref.text) showOutput(ref,ref.started ? '추론 결과를 모두 수신하지 못했습니다.' : '입력을 확인한 후 다시 실행하세요.',false,true);
+    }
+  } finally {
+    running = false;
+    $('input').disabled = false;
+    $('run').textContent = '모델 실행 →';
+    updateRunButton();
+  }
+}
+$('input').addEventListener('input',updateRunButton);
+$('input').addEventListener('keydown',event => { if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') { event.preventDefault(); runModels(); } });
+$('run').addEventListener('click',runModels);
+resetCards();
+(async () => {
+  try {
+    const response = await fetch('/api/meta');
+    if (!response.ok) throw Error('서버 연결 실패');
+    const meta = await response.json();
+    if (meta.app !== 'local-comparison-v3' || meta.task_mode !== 'shared_multiple_choice') throw Error('공통 과제 비교 서버를 시작해야 합니다.');
+    const device = typeof meta.device === 'string' ? meta.device.toUpperCase() : 'LOCAL';
+    $('environment').textContent = device + (number(meta.threads) === null ? '' : ' · ' + meta.threads + ' threads') + ' · 3개 모델';
+    if (Array.isArray(meta.models)) for (const model of meta.models) {
+      const ref = cards.get(model.key);
+      if (ref && typeof model.name === 'string') ref.name.textContent = model.name;
+    }
+  } catch (error) {
+    $('environment').textContent = '서버 확인 필요';
+    setStatus(error.message || String(error),'error');
+  }
+})();
+</script>
+</body>
+</html>

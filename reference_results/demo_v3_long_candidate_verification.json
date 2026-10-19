@@ -1,0 +1,37 @@
+{
+  "pass": true,
+  "events": [
+    {
+      "type": "run_start",
+      "order": [
+        "laya",
+        "llama1b",
+        "llama3b"
+      ],
+      "task": {
+        "question": "Choose an answer.",
+        "choices": {
+          "A": "x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x",
+          "B": "y"
+        },
+        "instruction": "Choose the single best answer to the question from the supplied candidates. Use only information in the question and general knowledge. Reply with exactly one uppercase letter: the chosen candidate ID. Do not generate an explanation.",
+        "task_sha256": "03e2b103d37865ac9e16f9ec850b9a7eb23c059547a2ea7cca026f53dac2df76"
+      }
+    },
+    {
+      "type": "model_start",
+      "model": "laya",
+      "name": "Laya · 제로샷 분류",
+      "kind": "classification"
+    },
+    {
+      "type": "status",
+      "model": "laya",
+      "message": "분류 중…"
+    },
+    {
+      "type": "error",
+      "message": "보기 A가 Laya의 48토큰 한도를 넘습니다. 세 모델에 같은 내용을 전달하도록 보기를 줄여 주세요."
+    }
+  ]
+}
